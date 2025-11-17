@@ -1,0 +1,4 @@
+cat /etc/passwd -> flag00:x:3000:3000::/home/flag/flag00:/bin/bash
+find / -user flag00 2>/dev/null -> cat /usr/sbin/john
+cdiiddwpgswtgt
+https://md5decrypt.net/Cesar/ -> nottoohardhere

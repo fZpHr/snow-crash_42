@@ -1,0 +1,53 @@
+base64 level09
+base64 -d base64 > level09
+
+https://dogbolt.org/
+
+
+
+level09@SnowCrash:~$ ./level09 token 
+tpmhr
+#+0 +1 +2 +3 +4
+level09@SnowCrash:~$ ./level09 level09 
+lfxhp5?
+#+0 +1 +2 +3 +4
+
+while (true)
+{
+  var_120 += 1;
+  int32_t i = 0xffffffff;
+  int32_t edi_1 = argv[1];
+  
+  while (i)
+  {
+    bool cond:0_1 = 0 != *edi_1;
+    edi_1 += 1;
+    i -= 1;
+    
+    if (!cond:0_1)
+      break;
+  }
+  
+  if (var_120 >= ~i - 1)
+    break;
+  
+  putchar(*(var_120 + argv[1]) + var_120);
+}
+
+
+f4kmm6p|=<82>^?p<82>n<83><82>DB<83>Du{^?<8c><89> #chara no printable
+
+level09@SnowCrash:~$ xxd token 
+0000000: 6634 6b6d 6d36 707c 3d82 7f70 826e 8382  f4kmm6p|=..p.n..
+0000010: 4442 8344 757b 7f8c 890a                 DB.Du{....
+
+6634 6b6d 6d36 707c 3d82 7f70 826e 8382 4442 8344 757b 7f8c 890a
+
+python3 script.py 66346b6d6d36707c3d827f70826e838244428344757b7f8c890a
+f3iji1ju5yuevaus41q1afiuq
+
+level09@SnowCrash:~$ su flag09
+Password: 
+Don't forget to launch getflag !
+flag09@SnowCrash:~$ getflag
+Check flag.Here is your token : s5cAJpM8ev6XHw998pRWG728z

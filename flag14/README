@@ -1,0 +1,215 @@
+int32_t main(int32_t argc, char** argv, char** envp)
+{
+    void* gsbase;
+    int32_t eax = *(gsbase + 0x14);
+    int32_t var_120 = 0;
+    int32_t result;
+    
+    if (ptrace(PTRACE_TRACEME, 0, 1, 0, 0) >= 0)
+    {
+        if (!getenv("LD_PRELOAD"))
+        {
+            if (open("/etc/ld.so.preload", 0) <= 0)
+            {
+                int32_t eax_5 = syscall_open("/proc/self/maps", 0);
+                
+                if (eax_5 != 0xffffffff)
+                {
+                    void var_114;
+                    
+                    while (syscall_gets(&var_114, 0x100, eax_5))
+                    {
+                        if (isLib(&var_114, "libc"))
+                            var_120 = 1;
+                        else if (var_120)
+                        {
+                            if (isLib(&var_114, 0x8049068))
+                            {
+                                fwrite("Check flag.Here is your token : ", 1, 0x20, stdout);
+                                int32_t eax_8 = getuid();
+                                
+                                if (eax_8 == 0xbbe)
+                                    fputs(ft_des("H8B8h_20B4J43><8>\ED<;j@3"), stdout);
+                                else if (eax_8 > 0xbbe)
+                                {
+                                    if (eax_8 == 0xbc2)
+                                        fputs(ft_des("74H9D^3ed7k05445J0E4e;Da4"), stdout);
+                                    else if (eax_8 > 0xbc2)
+                                    {
+                                        if (eax_8 == 0xbc4)
+                                            fputs(ft_des("8_Dw"4#?+3i]q&;p6 gtw88EC"), stdout);
+                                        else if (eax_8 < 0xbc4)
+                                            fputs(ft_des("70hCi,E44Df[A4B/J@3f<=:`D"), stdout);
+                                        else if (eax_8 == 0xbc5)
+                                            fputs(ft_des("boe]!ai0FB@.:|L6l@A?>qJ}I"), stdout);
+                                        else if (eax_8 == 0xbc6)
+                                            fputs(
+                                                ft_des("g <t61:|4_|!@IF.-62FH&G~DCK/Ekrvvdwz?v|"), 
+                                                stdout);
+                                        else
+                                            fwrite(
+                                                "\nNope there is no token here for you sorry. Try again "
+                                            ")", 
+                                                1, 0x38, stdout);
+                                    }
+                                    else if (eax_8 == 0xbc0)
+                                        fputs(ft_des("bci`mC{)jxkn<"uD~6%g7FK`7"), stdout);
+                                    else if (eax_8 > 0xbc0)
+                                        fputs(ft_des("Dc6m~;}f8Cj#xFkel;#&ycfbK"), stdout);
+                                    else
+                                        fputs(ft_des("78H:J4<4<9i_I4k0J^5>B1j`9"), stdout);
+                                }
+                                else if (eax_8 == 0xbba)
+                                    fputs(ft_des("<>B16\AD<C6,G_<1>^7ci>l4B"), stdout);
+                                else if (eax_8 > 0xbba)
+                                {
+                                    if (eax_8 == 0xbbc)
+                                        fputs(ft_des("?4d@:,C>8C60G>8:h:Gb4?l,A"), stdout);
+                                    else if (eax_8 > 0xbbc)
+                                        fputs(ft_des("G8H.6,=4k5J0<cd/D@>>B:>:4"), stdout);
+                                    else
+                                        fputs(ft_des("B8b:6,3fj7:,;bh>D@>8i:6@D"), stdout);
+                                }
+                                else if (eax_8 == 0xbb8)
+                                    fputs(ft_des("I`fA>_88eEd:=`85h0D8HE>,D"), stdout);
+                                else if (eax_8 > 0xbb8)
+                                    fputs(ft_des("7`4Ci4=^d=J,?>i;6,7d416,7"), stdout);
+                                else if (!eax_8)
+                                    fwrite("You are root are you that dumb ?\n", 1, 0x21, stdout);
+                                else
+                                    fwrite(
+                                        "\nNope there is no token here for you sorry. Try again :)", 
+                                        1, 0x38, stdout);
+                                
+                                fputc(0xa, stdout);
+                                break;
+                            }
+                            
+                            if (!afterSubstr(&var_114, "00000000 00:00 0"))
+                            {
+                                fwrite("LD_PRELOAD detected through memory maps exit ..\n", 1, 
+                                    0x30, stderr);
+                                break;
+                            }
+                        }
+                    }
+                    
+                    result = 0;
+                }
+                else
+                {
+                    fwrite(
+                        "/proc/self/maps is unaccessible, probably a LD_PRELOAD attempt exit..\n", 
+                        1, 0x46, stderr);
+                    result = 1;
+                }
+            }
+            else
+            {
+                fwrite("Injection Linked lib detected exit..\n", 1, 0x25, stderr);
+                result = 1;
+            }
+        }
+        else
+        {
+            fwrite("Injection Linked lib detected exit..\n", 1, 0x25, stderr);
+            result = 1;
+        }
+    }
+    else
+    {
+        puts("You should not reverse this");
+        result = 1;
+    }
+    
+    if (eax == *(gsbase + 0x14))
+        return result;
+    
+    __stack_chk_fail();
+    /* no return */
+}
+
+3000	0xbb8	flag00
+3001	0xbb9	flag01
+3002	0xbba	flag02
+3003	0xbbb	flag03
+3004	0xbbc	flag04
+3005	0xbbd	flag05
+3006	0xbbe	flag06
+3007	0xbbf	flag07
+3008	0xbc0	flag08
+3009	0xbc1	flag09
+3010	0xbc2	flag10
+3011	0xbc3	flag11
+3012	0xbc4	flag12
+3013	0xbc5	flag13
+3014	0xbc6	flag14
+
+gdb /bin/getflag
+(gdb) break main
+(gdb) run
+(gdb) break *0x0804898e
+(gdb) continue
+(gdb) disas
+Dump of assembler code for function main:
+   0x08048946 <+0>:	push   %ebp
+   0x08048947 <+1>:	mov    %esp,%ebp
+   0x08048949 <+3>:	push   %ebx
+   0x0804894a <+4>:	and    $0xfffffff0,%esp
+   0x0804894d <+7>:	sub    $0x120,%esp
+   0x08048953 <+13>:	mov    %gs:0x14,%eax
+   0x08048959 <+19>:	mov    %eax,0x11c(%esp)
+   0x08048960 <+26>:	xor    %eax,%eax
+   0x08048962 <+28>:	movl   $0x0,0x10(%esp)
+   0x0804896a <+36>:	movl   $0x0,0xc(%esp)
+   0x08048972 <+44>:	movl   $0x1,0x8(%esp)
+   0x0804897a <+52>:	movl   $0x0,0x4(%esp)
+   0x08048982 <+60>:	movl   $0x0,(%esp)
+   0x08048989 <+67>:	call   0x8048540 <ptrace@plt>
+=> 0x0804898e <+72>:	test   %eax,%eax
+   0x08048990 <+74>:	jns    0x80489a8 <main+98>
+   0x08048992 <+76>:	movl   $0x8048fa8,(%esp)
+   0x08048999 <+83>:	call   0x80484e0 <puts@plt>
+   0x0804899e <+88>:	mov    $0x1,%eax
+   0x080489a3 <+93>:	jmp    0x8048eb2 <main+1388>
+   0x080489a8 <+98>:	movl   $0x8048fc4,(%esp)
+   0x080489af <+105>:	call   0x80484d0 <getenv@plt>
+   0x080489b4 <+110>:	test   %eax,%eax
+   0x080489b6 <+112>:	je     0x80489ea <main+164>
+   0x080489b8 <+114>:	mov    0x804b040,%eax
+   0x080489bd <+119>:	mov    %eax,%edx
+   
+
+set $eax = 0 # if (ptrace(PTRACE_TRACEME, 0, 1, 0, 0) >= 0)
+
+(gdb) break *0x08048b02 
+(gdb) continue
+
+   0x08048ac8 <+386>:	call   0x8048843 <isLib>
+   0x08048acd <+391>:	test   %eax,%eax
+   0x08048acf <+393>:	je     0x8048e46 <main+1280>
+   0x08048ad5 <+399>:	mov    0x804b060,%eax
+   0x08048ada <+404>:	mov    %eax,%edx
+   0x08048adc <+406>:	mov    $0x804906c,%eax
+   0x08048ae1 <+411>:	mov    %edx,0xc(%esp)
+   0x08048ae5 <+415>:	movl   $0x20,0x8(%esp)
+   0x08048aed <+423>:	movl   $0x1,0x4(%esp)
+   0x08048af5 <+431>:	mov    %eax,(%esp)
+   0x08048af8 <+434>:	call   0x80484c0 <fwrite@plt>
+   0x08048afd <+439>:	call   0x80484b0 <getuid@plt> 
+=> 0x08048b02 <+444>:	mov    %eax,0x18(%esp)
+   0x08048b06 <+448>:	mov    0x18(%esp),%eax
+   0x08048b0a <+452>:	cmp    $0xbbe,%eax
+   0x08048b0f <+457>:	je     0x8048ccb <main+901>
+   0x08048b15 <+463>:	cmp    $0xbbe,%eax
+   0x08048b1a <+468>:	ja     0x8048b68 <main+546>
+   0x08048b1c <+470>:	cmp    $0xbba,%eax
+   0x08048b21 <+475>:	je     0x8048c3b <main+757>
+   0x08048b27 <+481>:	cmp    $0xbba,%eax
+  
+(gdb) set $eax = 3014 # int32_t eax_8 = getuid();
+(gdb) continue
+Continuing.
+Check flag.Here is your token : 7QiHafiNa3HVozsaXkawuYrTstxbpABHD8CPnHJ
+
+
